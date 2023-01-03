@@ -6,7 +6,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 echo "Install Nodejs"
@@ -16,7 +16,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -27,7 +27,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -38,7 +38,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -51,7 +51,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -67,7 +67,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -78,7 +78,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -88,7 +88,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -98,7 +98,7 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
 
 
@@ -108,5 +108,5 @@ then
   echo Status = Success
 else
   echo Status = Failure
-  exit
+  exit 1
 fi
