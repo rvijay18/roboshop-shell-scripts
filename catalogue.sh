@@ -27,14 +27,16 @@ else
   exit 1
 fi
 
-
-echo "Add roboshop Application User"
-useradd roboshop &>>$LOG_FILE
-if [ $? -eq 0 ]
+id roboshop &>>$LOG_FILE
+if [ $id -ne 0 ]
 then
-  echo Status = Success
-else
-  echo Status = Failure
+  echo "Add roboshop Application User"
+  useradd roboshop &>>$LOG_FILE
+  if [ $? -eq 0 ]
+  then
+    echo Status = Success
+  else
+    echo Status = Failure
   exit 1
 fi
 
