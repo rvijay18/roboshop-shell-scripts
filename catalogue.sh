@@ -1,6 +1,6 @@
 LOG_FILE=/tmp/catalogue
 
-ID=$(id - u)
+ID=$(id -u)
 if [ $ID -ne 0 ]
 then
   echo you need to run the script as a root user or use sudo privileges
