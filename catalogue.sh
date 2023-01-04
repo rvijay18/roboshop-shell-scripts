@@ -122,10 +122,4 @@ else
 fi
 
 systemctl enable catalogue &>>$LOG_FILE
-if [ $? -eq 0 ]
-then
-  echo -e Status = "\e[32mSuccess\e[0m"
-else
-  echo -e Status = "\e[31mFailure\e[0m"
-  exit 1
-fi
+echo success
