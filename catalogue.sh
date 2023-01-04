@@ -95,7 +95,7 @@ mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.servic
 if [ $? -eq 0 ]
 then
   echo Status = success
-else"
+else
   echo Status = failure
   exit 1
 fi
