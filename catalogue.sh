@@ -9,7 +9,7 @@ fi
 
 StatusCheck(){
   if [ $1 -eq 0 ]
-  thenStatusCheck
+  then
     echo -e Status = "\e[32mSuccess\e[0m"
   else
     echo -e Status = "\e[31mFailure\e[0m"
