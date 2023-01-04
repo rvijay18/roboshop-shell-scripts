@@ -28,7 +28,7 @@ else
 fi
 
 id roboshop &>>$LOG_FILE
-if [ $id -ne 0 ]
+if [ $? -ne 0 ]
 then
   echo "Add roboshop Application User"
   useradd roboshop &>>$LOG_FILE
