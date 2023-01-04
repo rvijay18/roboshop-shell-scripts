@@ -11,9 +11,9 @@ echo "setup Nodejs Repos"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -22,9 +22,9 @@ yum install nodejs -y &>>$LOG_FILE
 
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -35,9 +35,9 @@ then
   useradd roboshop &>>$LOG_FILE
   if [ $? -eq 0 ]
   then
-    echo -e Status = "\e[31mSuccess\e[0m"
+    echo -e Status = "\e[32mSuccess\e[0m"
   else
-    echo -e Status = "\e[32mFailure\e[0m"
+    echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -47,9 +47,9 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -60,9 +60,9 @@ echo "clean old app content"
 rm -rf catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -72,9 +72,9 @@ echo "Extract Catalogue Application Code"
 unzip /tmp/catalogue.zip &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -88,9 +88,9 @@ echo "Install Nodejs Dependencies"
 npm install &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -99,9 +99,9 @@ echo "setup catalogue services"
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -110,9 +110,9 @@ fi
 systemctl daemon-reload &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -121,9 +121,9 @@ fi
 systemctl start catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
 
@@ -131,9 +131,8 @@ fi
 systemctl enable catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-  echo -e Status = "\e[31mSuccess\e[0m"
+  echo -e Status = "\e[32mSuccess\e[0m"
 else
-  echo -e Status = "\e[32mFailure\e[0m"
+  echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
-
