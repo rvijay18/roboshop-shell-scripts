@@ -1,5 +1,4 @@
 LOG_FILE=/tmp/catalogue
-
 ID=$(id -u)
 if [ $ID -ne 0 ]
 then
@@ -17,6 +16,7 @@ else
   exit 1
 fi
 
+
 echo "Install Nodejs"
 yum install nodejs -y &>>$LOG_FILE
 if [ $? -eq 0 ]
@@ -26,6 +26,7 @@ else
   echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
+
 
 id roboshop &>>$LOG_FILE
 if [ $? -ne 0 ]
@@ -52,7 +53,6 @@ fi
 
 
 cd /home/roboshop
-
 echo "clean old app content"
 rm -rf catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
@@ -75,6 +75,7 @@ fi
 
 
 mv catalogue-main catalogue
+
 
 cd /home/roboshop/catalogue
 
@@ -99,6 +100,7 @@ else
   exit 1
 fi
 
+
 systemctl daemon-reload &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
@@ -108,6 +110,7 @@ else
   exit 1
 fi
 
+
 systemctl start catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
@@ -116,6 +119,7 @@ else
   echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
+
 
 systemctl enable catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
