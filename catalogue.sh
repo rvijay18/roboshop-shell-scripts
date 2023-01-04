@@ -66,8 +66,6 @@ else
   exit 1
 fi
 
-
-
 echo "Extract Catalogue Application Code"
 unzip /tmp/catalogue.zip &>>$LOG_FILE
 if [ $? -eq 0 ]
@@ -105,8 +103,6 @@ else
   exit 1
 fi
 
-
-
 systemctl daemon-reload &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
@@ -116,8 +112,6 @@ else
   exit 1
 fi
 
-
-
 systemctl start catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
@@ -126,7 +120,6 @@ else
   echo -e Status = "\e[31mFailure\e[0m"
   exit 1
 fi
-
 
 systemctl enable catalogue &>>$LOG_FILE
 if [ $? -eq 0 ]
