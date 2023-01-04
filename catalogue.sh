@@ -39,6 +39,7 @@ then
   else
     echo Status = failure
   exit 1
+  fi
 fi
 
 echo "Download Catalogue Application Code"
