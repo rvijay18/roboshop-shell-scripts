@@ -19,7 +19,6 @@ fi
 
 echo "Install Nodejs"
 yum install nodejs -y &>>$LOG_FILE
-
 if [ $? -eq 0 ]
 then
   echo -e Status = "\e[32mSuccess\e[0m"
@@ -41,10 +40,8 @@ then
   exit 1
 fi
 
-
 echo "Download Catalogue Application Code"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG_FILE
-
 if [ $? -eq 0 ]
 then
   echo -e Status = "\e[32mSuccess\e[0m"
@@ -78,7 +75,6 @@ fi
 
 
 mv catalogue-main catalogue
-
 
 cd /home/roboshop/catalogue
 
@@ -122,4 +118,10 @@ else
 fi
 
 systemctl enable catalogue &>>$LOG_FILE
-echo success
+if [ $? -eq 0 ]
+then
+  echo -e Status = "\e[32mSuccess\e[0m"
+else
+  echo -e Status = "\e[31mFailure\e[0m"
+  exit 1
+fi
