@@ -1,0 +1,8 @@
+COMPONENT=shipping
+LOG_FILE=/tmp/${COMPONENT}
+source common.sh
+APP_PREREQ
+SYSTEMD_SETUP
+NODEJS
+JAVA
+
