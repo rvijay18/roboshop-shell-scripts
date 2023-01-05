@@ -1,6 +1,6 @@
-LOG_FILE=/tmp/user
-source common.sh
 COMPONENT=user
+LOG_FILE=/tmp/${COMPONENT}
+source common.sh
 NODEJS
 
 
