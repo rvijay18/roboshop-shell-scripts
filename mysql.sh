@@ -40,13 +40,17 @@ then
 fi
 
 
+echo "Download Schema"
+curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip" &>>$LOG_FILE
+StatusCheck $?
 
-#> uninstall plugin validate_password;
+echo "Extract Schema"
+cd /tmp
+unzip -o mysql.zip &>>$LOG_FILE
+StatusCheck $?
 
-# curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
-
-# cd /tmp
-# unzip mysql.zip
-# cd mysql-main
-# mysql -u root -pRoboShop@1 <shipping.sql
+echo "load schema"
+cd mysql-main
+mysql -u root -p${ROBOSHOP_MYSQL_PASSWORD} <shipping.sql &>>$LOG_FILE
+StatusCheck $?
 
