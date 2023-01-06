@@ -8,7 +8,7 @@ StatusCheck $?
 
 echo "Install Erland & RabbitMQ"
 yum install erlang -y &>>$LOG_FILE
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>$LOG_FILE
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>$LOG_FILE
 yum install rabbitmq-server -y &>>$LOG_FILE
 StatusCheck $?
 
