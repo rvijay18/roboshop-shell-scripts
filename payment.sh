@@ -1,7 +1,5 @@
-COMPONENT=shipping
+COMPONENT=payment
 LOG_FILE=/tmp/${COMPONENT}
 
 source common.sh
-JAVA
-
-
+PYTHON

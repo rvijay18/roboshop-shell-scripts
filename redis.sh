@@ -1,24 +1,25 @@
-LOG_FILE=/tmp/catalogue
+LOG_FILE=/tmp/redis
+
 source common.sh
 
-echo "set up Yum Repos for redis"
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>LOG_FILE
+echo "Setup YUM Repos for Redis"
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOG_FILE
 StatusCheck $?
 
-echo "Enabling Redis Yum Modules"
-dnf module enable redis:remi-6.2 -y &>>LOG_FILE
+echo "Enabling Redis YUM Modules"
+dnf module enable redis:remi-6.2 -y &>>$LOG_FILE
 StatusCheck $?
 
 echo "Install Redis"
-yum install redis -y &>>LOG_FILE
+yum install redis -y &>>$LOG_FILE
 StatusCheck $?
 
-echo "Updating Listren address"
+echo "Update Redis Listen address from 127.0.0.1 to 0.0.0.0"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf
 StatusCheck $?
 
-systemctl enable redis
+systemctl enable redis &>>$LOG_FILE
 
-echo "set up Yum Repos for redis"
-systemctl restart redis &>>LOG_FILE
+echo "Start Redis"
+systemctl restart redis &>>$LOG_FILE
 StatusCheck $?
